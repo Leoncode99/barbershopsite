@@ -1,0 +1,784 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 400;
+    color: var(--cl--2--);
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    --cl--1--:#fff;
+    --cl--2--:#000;
+    --cl--3--:#2dd695;
+    --gap--:clamp(32px,96px,80px);/*CSS-функция clamp() фиксирует среднее значение в диапазоне значений между определенной минимальной границей и максимальной границей. Функция принимает три параметра: минимальное значение, предпочтительное значение и максимально допустимое значение.*/
+    background: var(--cl--1--);
+}
+
+img{
+    display: flex;
+    max-width: 100%;
+}
+
+a{
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+}
+
+ul{
+    list-style: none;
+}
+
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Advent Pro', sans-serif;
+    text-transform: uppercase;
+    line-height: 125%;
+}
+
+.row{
+    display: flex;
+}
+
+.flex{
+    flex-wrap: wrap;
+    gap: var(--gap--);
+}
+
+.flex>*{
+    flex: 1 1 400px;
+}
+
+.column{
+    display: grid;
+}
+
+.grid{
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: var(--gap--);
+}
+
+.container{
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/*HEADER*/
+
+header{
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 0;
+}
+
+.toggleMenu{
+    display: none;
+}
+
+nav{
+    flex-grow: 1;/*flex-grow определяет как много свободного пространства во flex-контейнере должно быть назначено текущему элементу (flex grow factor — «коэффициент увеличения flex»)*/
+}
+
+nav ul{
+    align-items: center;
+    gap: var(--gap--);
+    max-width: max-content;
+    margin: 0 auto;/*контент ссылок выровнили по центру*/
+}
+
+header .logo{
+    max-width: max-content;
+    margin: 0 auto;  /*логотип с контентом по центру*/
+}
+
+nav a{
+    position: relative;
+    font-size: 22px;
+    text-transform: capitalize;
+    padding: 8px;
+}
+
+nav a:hover{
+    color: var(--cl--1--);
+}
+
+nav a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background: var(--cl--2--);
+    z-index: -1;
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+}
+
+nav a:hover::after {
+    top: 0;
+    height: 100%;
+}
+
+/*end Header*/
+
+/*section hero*/
+
+.hero-bg {
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    margin-bottom: 64px;
+}
+
+.hero-bg::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/7.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+
+.hero {
+    align-items: center;
+    padding: 32px 0;
+    min-height: calc(100vh - 145px);
+}
+
+.hero-content {
+    flex-grow: 1;/*коэффициент увеличения flex*/
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1{
+    font-size: clamp(40px,50px,80px);
+    line-height: 150%;
+    color: var(--cl--1--);
+}
+
+.page-btn,
+.page-btn.active:hover {
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--cl--1--);
+    text-transform: uppercase;
+    border: 1px solid var(--cl--3--);
+    background: var(--cl--3--);
+    padding: 12px 24px;
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+}
+
+.page-btn:hover ,
+.page-btn.active{
+    color: var(--cl--3--);
+    background: transparent;
+}
+
+/*section hero end*/
+
+
+/*service section*/
+
+.service {
+    padding: 64px 0;
+}
+
+.s-card {
+    cursor: pointer;
+    text-align: center;
+}
+
+.s-card .row{
+    justify-content: center;
+    fill: var(--cl--3--);
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+}
+
+.s-card:hover .row{
+    fill: var(--cl--2--);
+}
+
+h2{
+    font-size: clamp(30px,96px,28px);
+    line-height: 125%;
+}
+
+.s-card h2{
+    padding: 8px 0;
+}
+
+p{
+    font-size: 18px;
+    line-height: 125%;
+}
+
+.service .grid+.grid{
+    padding-top: 64px;
+}
+
+.c-img img {
+    width: 100%;
+    height: 100%;
+    min-height: 750px;
+    object-fit: cover;
+}
+.c-content {
+    border: 2px solid var(--cl--2--);
+    padding: 32px;
+    margin-top: 32px;
+}
+
+hr{
+    border: 0;
+    background: var(--cl--2--);
+    width: 100%;
+    height: 2px;
+    margin: 1rem auto;
+}
+
+/*service section end*/
+
+/*section contact*/
+
+.bg {
+    background: hsl(162, 41%, 11%,0.3);
+    margin:64px auto;
+}
+.contact {
+    padding: 64px 0;
+}
+
+.contact-content {
+    align-self: center;
+    text-align: center;
+}
+
+.contact-content p{
+    margin-top: 16px;
+    line-height: 125%;
+}
+
+.form form {
+    gap: 16px;
+    margin-top: 50px;
+}
+
+input,
+textarea {
+    font-size: 18px;
+    color: var(--cl--2--);
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--cl--2--);
+    outline: 0;
+    padding: 16px;
+}
+
+::placeholder {
+    color: var(--cl--1--);
+    text-transform: uppercase;
+}
+
+/*section contact end*/
+
+
+
+/*section shop*/
+
+.shop {
+    padding: 64px 0;
+}
+
+.heading {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.heading h3{
+    padding: 8px 0;
+}
+
+.shop-cards {
+    padding-top: 64px;
+}
+
+.sh-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.sh-card img{
+    width: 100%;
+    height: 100%;
+}
+
+.btn {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+}
+
+.sh-card:hover .btn{
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/*section shop end*/
+
+/*section cards*/
+
+.ag-format-container {
+    width: 1142px;
+    margin: 0 auto;
+  }
+  
+.ag-courses_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  
+    padding: 50px 0;
+  }
+  .ag-courses_item {
+    -ms-flex-preferred-size: calc(33.33333% - 30px);
+    flex-basis: calc(33.33333% - 30px);
+  
+    margin: 0 15px 30px;
+  
+    overflow: hidden;
+  
+    border-radius: 28px;
+  }
+  .ag-courses-item_link {
+    display: block;
+    padding: 30px 20px;
+    background-color: #121212;
+  
+    overflow: hidden;
+  
+    position: relative;
+  }
+  .ag-courses-item_link:hover,
+  .ag-courses-item_link:hover .ag-courses-item_date {
+    text-decoration: none;
+    color: #FFF;
+  }
+  .ag-courses-item_link:hover .ag-courses-item_bg {
+    -webkit-transform: scale(10);
+    -ms-transform: scale(10);
+    transform: scale(10);
+  }
+  .ag-courses-item_title {
+    min-height: 87px;
+    margin: 0 0 25px;
+  
+    overflow: hidden;
+  
+    font-weight: bold;
+    font-size: 30px;
+    color: #FFF;
+  
+    z-index: 2;
+    position: relative;
+  }
+  .ag-courses-item_date-box {
+    font-size: 18px;
+    color: #FFF;
+  
+    z-index: 2;
+    position: relative;
+  }
+  .ag-courses-item_date {
+    font-weight: bold;
+    color: #2dd695;
+  
+    -webkit-transition: color .5s ease;
+    -o-transition: color .5s ease;
+    transition: color .5s ease
+  }
+  .ag-courses-item_bg {
+    height: 32px;
+    width: 32px;
+    background-color: #ffffff;
+    z-index: 1;
+    position: absolute;
+    top: -75px;
+    right: -75px;
+  
+    border-radius: 50%;
+  
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+  }
+ 
+  
+  .ag-format-container p{
+color: #fff;
+  }
+  
+  
+  @media only screen and (max-width: 979px) {
+    .ag-courses_item {
+      -ms-flex-preferred-size: calc(50% - 30px);
+      flex-basis: calc(50% - 30px);
+    }
+    .ag-courses-item_title {
+      font-size: 24px;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .ag-format-container {
+      width: 96%;
+    }
+  
+  }
+  @media only screen and (max-width: 639px) {
+    .ag-courses_item {
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+    }
+    .ag-courses-item_title {
+      min-height: 72px;
+      line-height: 1;
+  
+      font-size: 24px;
+    }
+    .ag-courses-item_link {
+      padding: 22px 40px;
+    }
+    .ag-courses-item_date-box {
+      font-size: 16px;
+    }
+  }
+
+
+
+
+/*section cards end*/
+
+/*section Blog*/
+
+.blog {
+    padding: 64px 0;
+}
+
+.blog h2 {
+    padding: 8px;
+}
+
+.blog-cards {
+    padding-top: 64px;
+}
+
+.content-sticky {
+    position: sticky; /*эффект залипания при скролле вниз , вверх. плавающий элемент*/
+    top: 0;
+    align-items: center;
+}
+.sub-btn {
+    text-align: center;
+    border: 2px solid var(--cl--2--);
+    padding: 32px;
+}
+
+.sub-btn .page-btn {
+    margin-top: 32px;
+}
+
+.media-links {
+    text-align: center;
+}
+
+.media-links .row{
+    justify-content: center;
+    gap: var(--gap--);
+    padding-top: 32px;
+}
+
+.media-links a{
+    fill: var(--cl--2--);
+}
+
+.media-links a:hover{
+    fill: var(--cl--3--);
+}
+
+/*section Blog end*/
+
+
+
+
+/*section subscribe*/
+
+.bg-2 {
+    background-image: url(../images/11-1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.85;
+}
+
+.bg-2 h2{
+    color: var(--cl--1--);
+}
+
+.row input{
+    border: 2px solid var(--cl--1--);
+    color: var(--cl--1--);
+}
+
+.subscribe {
+    align-items: center;
+    padding: 64px 0;
+    min-height: 50vh;
+}
+
+.subscribe-content {
+    flex-grow: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.subscribe-content form {
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 64px;
+}
+
+.subscribe-content form>* {
+    flex: 1 1 240px;
+}
+
+.subscribe-content button{
+    max-width: max-content;
+    margin: 0 auto;
+}
+
+
+/*section subscribe end*/
+
+/*footer*/
+.container {
+}
+.footer {
+    flex-wrap: wrap;
+    gap: var(--gap--);
+    padding: 64px 0;
+}
+
+.footer>* {
+    flex: 1 1 320px;
+}
+
+.footer-content {
+    max-width: 400px;
+}
+
+.footer-content .column{
+    gap: 0.5rem;
+    padding-top: 1rem;
+}
+
+.footer-content p {
+    margin-top: 16px;
+}
+
+footer a {
+    font-size: 18px;
+}
+
+footer a:hover{
+    color: var(--cl--3--);
+}
+
+.footer-content span {
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h4{
+    font-size: 25px;
+    padding-bottom: 16px;
+}
+
+.cards .row{
+    overflow: hidden;
+}
+
+.cards img{
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out ;
+    -moz-transition: 0.5s ease-in-out ;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+}
+
+.cards a:hover img {
+    transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+}
+
+.cards {
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+    gap: 16px;
+}
+
+.cards a{
+    overflow: hidden;
+}
+
+.category {
+    max-width: max-content;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+/*footer end*/
+
+
+
+
+
+
+
+
+
+
+/*Media*/
+
+@media (min-width:1350px) {
+    .container{
+        max-width: 1280px;
+    }
+}
+
+@media (min-width:1000px) {
+    .service .card:nth-of-type(odd) {
+        margin-top: 80px;
+    }
+
+    .blog-content {
+        max-width: 400px;
+    }
+}
+
+@media (max-width:800px) {
+    .toggleMenu {
+        display: flex;
+        margin: 0 auto;
+        cursor: pointer;
+        background-image: url(../images/menu.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 30px;
+        width: 30px;
+        height: 30px;
+        z-index: 1000;
+        transition: ;
+        -webkit-transition: background-size 0.5s ease-in-out ;
+        -moz-transition: background-size 0.5s ease-in-out ;
+        -ms-transition: background-size 0.5s ease-in-out;
+        -o-transition: background-size 0.5s ease-in-out;
+    }
+
+    .toggleMenu.active{
+        position: fixed;
+        right: 5%;
+        background-image: url(../images/cross.png);
+        background-size: 26px;
+    }
+
+    nav{
+        position: absolute;
+        inset: 0;/* это сокращение, которое соответствует свойствам top, right, bottom и / или left. Он имеет тот же многозначный синтаксис, что и сокращенное margin*/
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        min-height: 0;
+        opacity: 0;
+        transform: scale(0);
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+    }
+
+    nav.active{
+        position: fixed;
+        min-height: 100%;
+        opacity: 1;
+        background: var(--cl--1--);
+        z-index: 999;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
