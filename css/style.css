@@ -254,7 +254,7 @@ p{
     object-fit: cover;
 }
 .c-content {
-    border: 2px solid var(--cl--2--);
+   /* border: 2px solid var(--cl--2--);*/
     padding: 32px;
     margin-top: 32px;
 }
